@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- CORRECCIÓN i18n #1: Se añade lang="es" — el original no tenía atributo lang en <html> -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CORRECCIÓN estructura #1: Meta description faltaba completamente en el original -->
+  <meta name="description" content="Centro Comercial Unicentro Pasto — Más de 90 tiendas, restaurantes, entretenimiento y cine en San Juan de Pasto, Nariño, Colombia." />
+  <!-- CORRECCIÓN i18n #2: og:locale para indicar idioma/región del contenido -->
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <title>Centro Comercial Unicentro Pasto</title>
+  <!-- Fonts igual al sitio original (Google Fonts vía WordPress) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Font Awesome para iconos de redes sociales igual al original -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     BARRA SUPERIOR (idéntica al original)
+═══════════════════════════════════════════ -->
+<div id="top-bar">
+  <div class="top-bar-left">
+    <a href="tel:+576027228114">
+      <i class="fa fa-phone"></i>
+      <!-- CORRECCIÓN contenido #1: Formato de teléfono internacional consistente.
+           Original tenía "602 7228114" sin prefijo de país -->
+      +57 (602) 722-8114
+    </a>
+    <a href="tel:+573104709828">
+      <i class="fa fa-mobile"></i>
+      +57 310 470-9828
+    </a>
+    <a href="https://www.ccunicentropasto.com/nuevos-horarios-de-operacion/" target="_blank">
+      <i class="fa fa-clock"></i>
+      Horario centro comercial de 8:00 a.m. a 11:00 p.m.
+    </a>
+  </div>
+  <div class="top-bar-right">
+    <!-- CORRECCIÓN i18n #3: Selector de idioma — no existía en el original -->
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')" title="Español">🇨🇴 ES</button>
+      <button class="lang-btn" onclick="setLang('en')" title="English">🇺🇸 EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR (idéntica al original)
+═══════════════════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+
+    <div class="site-logo">
+      <a href="#" aria-label="Centro Comercial Unicentro Pasto - Inicio">
+        <!-- Logo de texto igual al original (el sitio usa texto + imagen) -->
+        <span class="logo-text">Centro Comercial Unicentro Pasto</span>
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Menú principal">
+      <ul>
+        <li><a href="#marcas"       data-i18n="nav.brands">Marcas</a></li>
+        <!-- CORRECCIÓN estructura #1: En el original /cartelera/ del footer
+             y /cartelera-de-cine/ del body apuntan a páginas distintas. Se unifica. -->
+        <li><a href="#cartelera"    data-i18n="nav.cinema">Cartelera de cine</a></li>
+        <li><a href="#promociones"  data-i18n="nav.promos">Promociones</a></li>
+        <li><a href="#noticias"     data-i18n="nav.news">Noticias</a></li>
+        <li><a href="https://www.ccunicentropasto.com/servicios/"   data-i18n="nav.services">Servicios</a></li>
+        <li><a href="https://www.ccunicentropasto.com/nosotros/"    data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="https://www.ccunicentropasto.com/contactenos/" data-i18n="nav.contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-social">
+      <a href="https://www.facebook.com/unicentropasto"   target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/unicentropasto/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/unicentro_pasto"        target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/channel/UCbtQJqLmoGmiyFBh3qc1Vrw" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=573143343756" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+      <i class="fa fa-bars"></i>
+    </button>
+
+  </div>
+
+  <!-- Menú móvil -->
+  <nav id="mobile-nav" class="mobile-nav" hidden aria-label="Menú móvil">
+    <ul>
+      <li><a href="#marcas"      data-i18n="nav.brands">Marcas</a></li>
+      <li><a href="#cartelera"   data-i18n="nav.cinema">Cartelera de cine</a></li>
+      <li><a href="#promociones" data-i18n="nav.promos">Promociones</a></li>
+      <li><a href="#noticias"    data-i18n="nav.news">Noticias</a></li>
+      <li><a href="https://www.ccunicentropasto.com/servicios/"   data-i18n="nav.services">Servicios</a></li>
+      <li><a href="https://www.ccunicentropasto.com/nosotros/"    data-i18n="nav.about">Nosotros</a></li>
+      <li><a href="https://www.ccunicentropasto.com/contactenos/" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 1 — NUESTRAS MARCAS (hero del original)
+  ═══════════════════════════════════════════ -->
+  <section id="marcas" class="section-marcas">
+    <div class="marcas-inner">
+      <h1 data-i18n="marcas.title">Nuestras marcas</h1>
+      <p data-i18n="marcas.subtitle">En Unicentro Pasto encuentras más de 90 tiendas y restaurantes.</p>
+
+      <div class="categorias-grid">
+        <a href="https://www.ccunicentropasto.com/tiendas/" class="cat-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2025/01/tiendas-2025.png"
+               alt="Tiendas Unicentro Pasto" />
+          <span data-i18n="cat.stores">TIENDAS</span>
+        </a>
+        <a href="https://www.ccunicentropasto.com/tiendas/zona-de-comidas/" class="cat-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2019/10/comidas-uncientropasto.png"
+               alt="Zona de comidas Unicentro Pasto" />
+          <span data-i18n="cat.food">COMIDAS</span>
+        </a>
+        <a href="https://www.ccunicentropasto.com/tiendas/entretenimiento/" class="cat-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2019/10/entretenimiento-uncientropasto.png"
+               alt="Entretenimiento Unicentro Pasto" />
+          <span data-i18n="cat.entertainment">ENTRETENIMIENTO</span>
+        </a>
+        <a href="https://www.ccunicentropasto.com/tiendas/entidades-financieras/" class="cat-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2025/01/bancos-2025.png"
+               alt="Bancos y entidades financieras Unicentro Pasto" />
+          <span data-i18n="cat.banks">BANCOS</span>
+        </a>
+      </div>
+
+      <a href="https://www.ccunicentropasto.com/tiendas/" class="btn-conocer" data-i18n="marcas.cta">
+        Conocer más
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 2 — PROMOCIONES
+  ═══════════════════════════════════════════ -->
+  <section id="promociones" class="section-promociones">
+    <div class="container">
+      <h2 data-i18n="promos.title">Promociones</h2>
+
+      <div class="promos-grid">
+        <a href="https://www.ccunicentropasto.com/descripcion/promocion-septiembre-mac-center-2026/" class="promo-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2026/09/promocion-septiembre-mac-center-2026.jpg"
+               alt="Promoción septiembre Mac Center 2026" />
+        </a>
+        <a href="https://www.ccunicentropasto.com/descripcion/promocion-villa-romana-agosto-2026/" class="promo-item">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2026/08/promocion-villa-romana-agosto-2026.jpg"
+               alt="Promoción agosto Villa Romana 2026" />
+        </a>
+      </div>
+
+      <div class="section-cta">
+        <a href="https://www.ccunicentropasto.com/promociones/" class="btn-rojo" data-i18n="promos.all">
+          ¡Descúbrelas todas!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 3 — CARTELERA DE CINE
+  ═══════════════════════════════════════════ -->
+  <section id="cartelera" class="section-cine">
+    <div class="cine-inner">
+      <div class="cine-images">
+        <a href="https://www.ccunicentropasto.com/cartelera-de-cine/">
+          <img src="https://www.ccunicentropasto.com/wp-content/uploads/2024/01/cine-unicentro.jpg"
+               alt="Salas de cine Cinemark en Unicentro Pasto" />
+        </a>
+      </div>
+      <div class="cine-texto">
+        <!-- CORRECCIÓN contenido #2: Título corregido. Original decía "Unicentrode película"
+             (faltaba el espacio entre "Unicentro" y "de") -->
+        <h2 data-i18n="cinema.title">Unicentro de película</h2>
+        <p data-i18n="cinema.desc">
+          Disfruta de los mejores estrenos de cine en las salas Cinemark de Unicentro Pasto.
+        </p>
+        <!-- CORRECCIÓN estructura #2: Se unifica la ruta. En el original el botón usaba
+             /cartelera-de-cine/ pero el footer enlazaba a /cartelera/ (ruta diferente) -->
+        <a href="https://www.ccunicentropasto.com/cartelera-de-cine/" class="btn-rojo" data-i18n="cinema.cta">
+          Explora la cartelera
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 4 — NOTICIAS Y ACTIVIDADES
+  ═══════════════════════════════════════════ -->
+  <section id="noticias" class="section-noticias">
+    <div class="container">
+      <h2 data-i18n="news.title">Noticias y Actividades</h2>
+
+      <div class="noticias-grid">
+
+        <!-- Noticia 1 -->
+        <article class="noticia-card">
+          <a href="https://www.ccunicentropasto.com/ecoamigos/">
+            <img src="https://www.ccunicentropasto.com/wp-content/uploads/2023/04/EC-AMIGOS.jpg"
+                 alt="EcoAmigos — Bolso ecológico Unicentro Pasto" />
+          </a>
+          <div class="noticia-body">
+            <!-- CORRECCIÓN contenido #3: El emoji ♻ aparecía roto como imagen SVG inline
+                 mezclada con texto en el título. Se usa directamente el carácter Unicode. -->
+            <h3><a href="https://www.ccunicentropasto.com/ecoamigos/" data-i18n="news.eco.title">EC♻AMIGOS</a></h3>
+            <p data-i18n="news.eco.desc">
+              Todos los martes y miércoles de 3:00 a 5:00 p.m. reclama tu Bolso Ecológico
+              Exclusivo, por facturas del día en los Establecimientos Comerciales.
+            </p>
+            <a href="https://www.ccunicentropasto.com/ecoamigos/" class="leer-mas" data-i18n="news.readmore">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 2 -->
+        <article class="noticia-card">
+          <a href="https://www.ccunicentropasto.com/ganador-mama-y-papa-2026/">
+            <img src="https://www.ccunicentropasto.com/wp-content/uploads/2026/06/ganador-mama-papa.jpg"
+                 alt="Ganador concurso Mamá y Papá el motor de nuestra Vida" />
+          </a>
+          <div class="noticia-body">
+            <h3><a href="https://www.ccunicentropasto.com/ganador-mama-y-papa-2026/" data-i18n="news.winner.title">Ganador Mamá y Papá el motor de nuestra Vida</a></h3>
+            <a href="https://www.ccunicentropasto.com/ganador-mama-y-papa-2026/" class="leer-mas" data-i18n="news.readmore">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 3 -->
+        <article class="noticia-card">
+          <a href="https://www.ccunicentropasto.com/mama-y-papa-2026/">
+            <img src="https://www.ccunicentropasto.com/wp-content/uploads/2026/05/mama-papa-2026.jpg"
+                 alt="Mamá y Papá el motor de nuestra Vida — actividad Unicentro Pasto" />
+          </a>
+          <div class="noticia-body">
+            <h3><a href="https://www.ccunicentropasto.com/mama-y-papa-2026/" data-i18n="news.mamapapa.title">Mamá y Papá el motor de nuestra Vida</a></h3>
+            <a href="https://www.ccunicentropasto.com/mama-y-papa-2026/" class="leer-mas" data-i18n="news.readmore">Leer más</a>
+          </div>
+        </article>
+
+        <!-- Noticia 4 -->
+        <article class="noticia-card">
+          <a href="https://www.ccunicentropasto.com/rifa16aniversario/">
+            <img src="https://www.ccunicentropasto.com/wp-content/uploads/2026/04/16-aniversario.jpg"
+                 alt="16 aniversario Unicentro Pasto" />
+          </a>
+          <div class="noticia-body">
+            <h3><a href="https://www.ccunicentropasto.com/rifa16aniversario/" data-i18n="news.anniversary.title">16º Aniversario Unicentro Pasto</a></h3>
+            <a href="https://www.ccunicentropasto.com/rifa16aniversario/" class="leer-mas" data-i18n="news.readmore">Leer más</a>
+          </div>
+        </article>
+
+      </div><!-- /.noticias-grid -->
+
+      <div class="section-cta">
+        <a href="http://www.ccunicentropasto.com/eventos-y-actividades/" class="btn-rojo" data-i18n="news.all">
+          Conoce todas nuestras actividades
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECCIÓN 5 — INSTAGRAM FEED (igual al original)
+  ═══════════════════════════════════════════ -->
+  <section id="instagram" class="section-instagram">
+    <div class="container">
+      <h2 data-i18n="insta.title">Síguenos en Instagram</h2>
+
+      <div class="insta-grid">
+        <a href="https://www.instagram.com/p/DcUfr3ujvbs/" target="_blank" rel="noopener" class="insta-item">
+          <!-- CORRECCIÓN estructura #3: Se añade alt descriptivo a cada imagen de Instagram.
+               En el original todas tenían alt="instagram" (no descriptivo, falla de accesibilidad) -->
+          <img src="https://scontent-atl3-2.cdninstagram.com/v/t39.30808-6/780127782_1477367354421485_1393798836541842611_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&_nc_ohc=foic9XP_UoAQ7kNvwHpzbIh&_nc_ht=scontent-atl3-2.cdninstagram.com"
+               alt="Publicación de Instagram de Unicentro Pasto — Mayo 2026" />
+          <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+        </a>
+        <a href="https://www.instagram.com/p/Db6pdPzD1CW/" target="_blank" rel="noopener" class="insta-item">
+          <img src="https://scontent-atl3-2.cdninstagram.com/v/t39.30808-6/764036599_1468340948657459_5131903264751452880_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ccb=7-5&_nc_sid=18de74&_nc_ohc=LTk-oh14xQYQ7kNvwFKZaGN&_nc_ht=scontent-atl3-2.cdninstagram.com"
+               alt="Publicación de Instagram de Unicentro Pasto — Abril 2026" />
+          <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+        </a>
+        <a href="https://www.instagram.com/p/Dbl9rJzjKYt/" target="_blank" rel="noopener" class="insta-item">
+          <img src="https://scontent-atl3-2.cdninstagram.com/v/t39.30808-6/763240310_1461365416021679_766446354735089679_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&_nc_ohc=NZ0aRIaAP4gQ7kNvwFnAQSe&_nc_ht=scontent-atl3-2.cdninstagram.com"
+               alt="Publicación de Instagram de Unicentro Pasto — Marzo 2026" />
+          <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+        </a>
+      </div>
+
+      <div class="section-cta">
+        <a href="https://www.instagram.com/unicentropasto" target="_blank" rel="noopener" class="btn-rojo" data-i18n="insta.cta">
+          Ver en Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main><!-- /#main-content -->
+
+<!-- ═══════════════════════════════════════════
+     FOOTER (idéntico al original)
+═══════════════════════════════════════════ -->
+<footer id="site-footer">
+  <div class="footer-top container">
+
+    <!-- Columna izquierda: Encuéntranos -->
+    <div class="footer-col footer-encuentranos">
+      <h4 data-i18n="footer.find">Encuéntranos</h4>
+      <address>
+        Calle 11 # 34 - 78, Av. Panamericana,<br>
+        La Aurora, San Juan de Pasto, Nariño, Colombia
+      </address>
+      <!-- CORRECCIÓN contenido #4: Formato de teléfono internacional consistente.
+           Original tenía "(+57) 3104709828" sin separadores legibles -->
+      <a href="tel:+573104709828">+57 310 470-9828</a><br>
+      <a href="mailto:administracion@ccunicentropasto.com">administracion@ccunicentropasto.com</a>
+    </div>
+
+    <!-- Columna: Marcas -->
+    <div class="footer-col">
+      <h4 data-i18n="footer.brands">Marcas</h4>
+      <ul>
+        <li><a href="https://www.ccunicentropasto.com/tiendas/"                    data-i18n="cat.stores">Tiendas</a></li>
+        <li><a href="https://www.ccunicentropasto.com/tiendas/zona-de-comidas/"    data-i18n="cat.food">Comidas</a></li>
+        <li><a href="https://www.ccunicentropasto.com/tiendas/entretenimiento/"    data-i18n="cat.entertainment">Entretenimiento</a></li>
+        <li><a href="https://www.ccunicentropasto.com/tiendas/entidades-financieras/" data-i18n="cat.banks">Bancos</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna: Para Ti -->
+    <div class="footer-col">
+      <h4 data-i18n="footer.forYou">Para Ti</h4>
+      <ul>
+        <!-- CORRECCIÓN estructura #4: Se unifica el enlace de Cartelera.
+             Original tenía /cartelera/ aquí pero /cartelera-de-cine/ en el body -->
+        <li><a href="https://www.ccunicentropasto.com/cartelera-de-cine/"          data-i18n="nav.cinema">Cartelera</a></li>
+        <li><a href="https://www.ccunicentropasto.com/promociones/"                data-i18n="nav.promos">Promociones</a></li>
+        <li><a href="https://www.ccunicentropasto.com/eventos-y-actividades/"      data-i18n="nav.news">Actividades</a></li>
+        <li><a href="https://www.ccunicentropasto.com/servicios/"                  data-i18n="nav.services">Servicios</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna: Nosotros -->
+    <div class="footer-col">
+      <h4 data-i18n="footer.us">Nosotros</h4>
+      <ul>
+        <li><a href="https://www.ccunicentropasto.com/nosotros/"                        data-i18n="nav.about">Nosotros</a></li>
+        <li><a href="https://www.ccunicentropasto.com/contactenos/"                     data-i18n="nav.contact">Contacto</a></li>
+        <li><a href="https://www.ccunicentropasto.com/proteccion-datos-personales/aviso-de-privacidad/" data-i18n="footer.privacy">Aviso de Privacidad</a></li>
+      </ul>
+    </div>
+
+  </div><!-- /.footer-top -->
+
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <a href="https://www.facebook.com/unicentropasto"   target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/unicentropasto/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/channel/UCbtQJqLmoGmiyFBh3qc1Vrw" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=573143343756" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <!-- CORRECCIÓN contenido #5: Copyright con año dinámico.
+         Original tenía "© 2024" hardcodeado (desfasado en 2026) -->
+    <p>&copy; <span id="footer-year"></span> - Centro Comercial Unicentro Pasto -
+      <span data-i18n="footer.rights">Todos los derechos reservados</span>
+    </p>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script>
+  // Año dinámico en footer
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // Menú móvil
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    mobileNav.hidden = open;
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => { mobileNav.hidden = true; toggle.setAttribute('aria-expanded','false'); });
+  });
+
+  // Header con sombra al hacer scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 5);
+  }, { passive: true });
+</script>
+</body>
+</html>
